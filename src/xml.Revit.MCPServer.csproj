@@ -1,0 +1,127 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<UseWPF>true</UseWPF>
+		<LangVersion>latest</LangVersion>
+		<PlatformTarget>x64</PlatformTarget>
+		<ImplicitUsings>true</ImplicitUsings>
+		<PublishAddinFiles>true</PublishAddinFiles>
+		<Configurations>Debug R18;Debug R19;Debug R20;Debug R21;Debug R22;Debug R23;Debug R24;Debug R25</Configurations>
+		<Configurations>$(Configurations);Release R18;Release R19;Release R20;Release R21;Release R22;Release R23;Release R24;Release R25</Configurations>
+	</PropertyGroup>
+	
+	<PropertyGroup Condition="$(Configuration.Contains('R18'))">
+		<RevitVersion>2018</RevitVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration.Contains('R19'))">
+		<RevitVersion>2019</RevitVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration.Contains('R20'))">
+		<RevitVersion>2020</RevitVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration.Contains('R21'))">
+		<RevitVersion>2021</RevitVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration.Contains('R22'))">
+		<RevitVersion>2022</RevitVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration.Contains('R23'))">
+		<RevitVersion>2023</RevitVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration.Contains('R24'))">
+		<RevitVersion>2024</RevitVersion>
+		<TargetFramework>net48</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration.Contains('R25'))">
+		<RevitVersion>2025</RevitVersion>
+		<TargetFramework>net8.0-windows</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup Condition="$(Configuration.Contains('R26'))">
+		<RevitVersion>2026</RevitVersion>
+		<TargetFramework>net8.0-windows</TargetFramework>
+	</PropertyGroup>
+	<PropertyGroup>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<PublishAddinFiles>false</PublishAddinFiles>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<StartAction>Program</StartAction>
+		<StartProgram>C:\Program Files\Autodesk\Revit $(RevitVersion)\Revit.exe</StartProgram>
+	</PropertyGroup>
+
+    <ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+		<PackageReference Include="Nice3point.Revit.Api.RevitAPI" Version="$(RevitVersion).*-*" />
+		<PackageReference Include="Nice3point.Revit.Api.RevitAPIUI" Version="$(RevitVersion).*-*" />
+		<PackageReference Include="Nice3point.Revit.Build.Tasks" Version="2.*" />
+    </ItemGroup>
+
+
+	<ItemGroup>
+		<Folder Include="lib\" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration.Contains('R18'))">
+		<Reference Include="xml.Revit">
+			<HintPath>lib\2018\xml.Revit.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration.Contains('R19'))">
+		<Reference Include="xml.Revit">
+			<HintPath>lib\2019\xml.Revit.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration.Contains('R20'))">
+		<Reference Include="xml.Revit">
+			<HintPath>lib\2020\xml.Revit.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration.Contains('R21'))">
+		<Reference Include="xml.Revit">
+			<HintPath>lib\2021\xml.Revit.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration.Contains('R22'))">
+		<Reference Include="xml.Revit">
+			<HintPath>lib\2022\xml.Revit.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration.Contains('R23'))">
+		<Reference Include="xml.Revit">
+			<HintPath>lib\2023\xml.Revit.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration.Contains('R24'))">
+		<Reference Include="xml.Revit">
+			<HintPath>lib\2024\xml.Revit.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration.Contains('R25'))">
+		<Reference Include="xml.Revit">
+			<HintPath>lib\2025\xml.Revit.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration.Contains('R26'))">
+		<Reference Include="xml.Revit">
+			<HintPath>lib\2026\xml.Revit.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+
+</Project>
